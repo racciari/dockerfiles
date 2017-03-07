@@ -13,6 +13,11 @@ Then, you can just run the container:
 # docker run ceph-s3-tests
 ```
 
+You can modify the host and port with the `S3_HOST` and `S3_PORT` environment variables:
+```console
+# docker run -e S3_HOST=192.168.1.1 -e S3_PORT=80 ceph-s3-tests
+```
+
 Like described in the [Ceph S3 tests GitHub page](https://github.com/ceph/s3-tests), 
 you can add parameters to the container:
 
