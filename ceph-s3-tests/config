@@ -36,5 +36,5 @@ user_id = 56789abcdef0123456789abcdef0123456789abcdef0123456789abcdef01234
 display_name = test2
 ## the "alt" user needs to have email set, too
 email = romain@openio.io
-access_key = demo:demo
-secret_key = DEMO_PASS
+access_key = demo2:demo2
+secret_key = DEMO_PASS2
