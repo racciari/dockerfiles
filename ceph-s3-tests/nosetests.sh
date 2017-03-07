@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 set -e
 
 source s3-tests/virtualenv/bin/activate \

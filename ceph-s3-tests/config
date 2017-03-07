@@ -3,7 +3,7 @@
 ## sections, you can place these variables also directly there
 
 ## replace with e.g. "localhost" to run against local software
-host = 192.168.1.49
+host = localhost
 
 ## uncomment the port to use something other than 80
 port = 6007
@@ -15,7 +15,7 @@ is_secure = no
 ## all the buckets created will start with this prefix;
 ## {random} will be filled with random characters to pad
 ## the prefix to 30 characters long, and avoid collisions
-bucket prefix = RAC-{random}-
+bucket prefix = TEST-{random}-
 
 [s3 main]
 ## the tests assume two accounts are defined, "main" and "alt".
