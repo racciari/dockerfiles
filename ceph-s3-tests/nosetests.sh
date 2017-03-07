@@ -9,7 +9,7 @@ if [ ! -z "$S3_HOST" ]; then
 fi
 if [ ! -z "$S3_PORT" ]; then
   echo "Setting S3 port to $S3_PORT"
-  sed -i -e "s@^port =.*@host = $S3_PORT@g" \
+  sed -i -e "s@^port =.*@port = $S3_PORT@g" \
     /config
 fi
 
