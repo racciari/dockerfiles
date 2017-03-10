@@ -3,7 +3,7 @@
 ## sections, you can place these variables also directly there
 
 ## replace with e.g. "localhost" to run against local software
-host = localhost
+host = 192.168.56.101
 
 ## uncomment the port to use something other than 80
 port = 6007
@@ -24,11 +24,11 @@ bucket prefix = TEST-{random}-
 user_id = 0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef
 
 ## display name typically looks more like a unix login, "jdoe" etc
-display_name = test1
+display_name = admin
 
 ## replace these with your access keys
-access_key = demo:demo
-secret_key = DEMO_PASS
+access_key = admin:admin
+secret_key = admin
 
 [s3 alt]
 ## another user account, used for ACL-related tests
@@ -36,5 +36,5 @@ user_id = 56789abcdef0123456789abcdef0123456789abcdef0123456789abcdef01234
 display_name = test2
 ## the "alt" user needs to have email set, too
 email = romain@openio.io
-access_key = demo2:demo2
-secret_key = DEMO_PASS2
+access_key = test:tester
+secret_key = testing
