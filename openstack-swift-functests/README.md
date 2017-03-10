@@ -1,27 +1,14 @@
-# ceph-s3-tests
+# openstack-swift-functests
 
-This image provides an easy way to run S3 compatibility tests from the [Ceph project](http://ceph.com).
+This image provides an easy way to run [Openstack Swift](https://github.com/openstack/swift) functional tests.
 
 ## How to use this image
 
-You need to customize the config file to point the host to your S3 endpoint and
-change the credentials of both accounts *main* and *alt*.  
-
-Then, you can just run the container:
+Set the `SWIFT_HOST` and `SWIFT_PORT` to match your setup:
 
 ```console
-# docker run ceph-s3-tests
+# docker run -e SWIFT_HOST=192.168.56.101 -e SWIFT_PORT=6007 racciari/openstack-swift-functests
 ```
 
-You can modify the host and port with the `S3_HOST` and `S3_PORT` environment variables:
-```console
-# docker run -e S3_HOST=192.168.1.1 -e S3_PORT=80 ceph-s3-tests
-```
+Your Openstack Swift server must have the [default credentials](https://github.com/openstack/swift/blob/master/test/sample.conf) configured.
 
-Like described in the [Ceph S3 tests GitHub page](https://github.com/ceph/s3-tests), 
-you can add parameters to the container:
-
-```console
-# docker run ceph-s3-tests -v --collect-only
-# docker run ceph-s3-tests s3tests.functional.test_s3:test_bucket_list_empty
-```
