@@ -15,7 +15,7 @@ is_secure = no
 ## all the buckets created will start with this prefix;
 ## {random} will be filled with random characters to pad
 ## the prefix to 30 characters long, and avoid collisions
-bucket prefix = TEST-{random}-
+bucket prefix = test-{random}-
 
 [s3 main]
 ## the tests assume two accounts are defined, "main" and "alt".
