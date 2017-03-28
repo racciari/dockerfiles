@@ -4,7 +4,7 @@ MAINTAINER "Romain Acciari" <romain.acciari@openio.io>
 ADD repositories /etc/apk/
 ADD awsrequest.patch aws.sh /
 
-RUN apk add --no-cache awscli
+RUN apk add --no-cache aws-cli
 RUN cd /usr/lib/python3.6/site-packages \
     && patch -p1 -i /awsrequest.patch \
     && mkdir -p /root/.aws
