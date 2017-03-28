@@ -6,7 +6,6 @@ ADD awsrequest.patch aws.sh /
 
 RUN apk add --no-cache aws-cli
 RUN cd /usr/lib/python3.6/site-packages \
-    && patch -p1 -i /awsrequest.patch \
     && mkdir -p /root/.aws
 
 ADD config credentials /root/.aws/
