@@ -1,4 +1,4 @@
-# ceph-s3-tests
+# s3cmd
 
 This image provides an easy way to run [s3cmd](http://s3tools.org/s3cmd) from [S3tools](http://s3tools.org).
 
