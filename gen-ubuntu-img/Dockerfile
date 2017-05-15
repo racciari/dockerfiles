@@ -7,6 +7,7 @@ RUN apt-get update \
 VOLUME ["/mnt"]
 
 ADD debootstrap.sh /
+ADD scripts /scripts/
 
 ENTRYPOINT ["/debootstrap.sh"]
-#docker run --privileged -v /mnt/:/mnt/ --net=host -ti --tty ubuntu:16.04 /bin/bash
+#docker run --privileged -v /mnt/:/mnt/ --net=host ubuntu:16.04 /bin/bash
