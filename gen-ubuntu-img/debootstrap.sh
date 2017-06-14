@@ -25,16 +25,17 @@ function cleanup() {
 trap cleanup EXIT
 
 variant=${VARIANT:-minbase}
-packages=${PACKAGES:-vim-tiny,iputils-ping,iproute2,openssh-server,ethtool,ifupdown,isc-dhcp-client,net-tools,xfsprogs,sudo,curl,udev,python}
+packages=${PACKAGES:-vim-tiny,iputils-ping,iproute2,openssh-server,ethtool,ifupdown,isc-dhcp-client,net-tools,xfsprogs,sudo,curl,udev,python,dbus}
 arch=${ARCH:-arm64}
 codename=${CODENAME:-xenial}
 dist=${DIST:-ubuntu}
 repo=${REPOSITORY:-http://ports.ubuntu.com/ubuntu-ports/}
-hostname=${IMGHOSTNAME:-armadabox}
+hostname=${IMGHOSTNAME:-}
 imgname=${IMGNAME:-ubuntu.img}
 imgsize=${IMGSIZE:-250}
 wrkdir=${WRKDIR:-/mnt}
 chrootdir=${CHROOTDIR:-ubuntu}
+sshpubkeyfile=${SSHPUBKEYFILE:-.sshpubkey}
 
 qemuarch=$arch
 case $arch in

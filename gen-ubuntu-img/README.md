@@ -9,6 +9,6 @@ It requires special priviliges to mount loop devices.
 The image is generated in the */mnt* directory you can mount on your host:
 
 ```console
-# docker run -ti --tty --privileged -v /mnt/:/mnt/ racciari/gen-ubuntu-img
+# docker run --privileged -v /mnt/:/mnt/ racciari/gen-ubuntu-img
 ```
 
