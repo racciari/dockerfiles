@@ -16,8 +16,10 @@ if [ ! -z "$AUTH_VERSION" ]; then
   sed -i -e "s@^#auth_version =.*@auth_version = ${AUTH_VERSION}@" /etc/swift/test.conf
 fi
 
+HTTP_TYPE="http"
 if [ ! -z "$SWIFT_SSL" ]; then
   sed -i -e "s@^auth_ssl =.*@auth_ssl = ${SWIFT_SSL}@" /etc/swift/test.conf
+  HTTP_TYPE="https"
 fi
 
 # Wait for the swift gateway to be reachable
@@ -28,8 +30,8 @@ etime_end=$(($etime_start + $TIMEOUT))
 swift=42
 while [ $(date +"%s") -le $etime_end -a $swift -ne 0 ]
 do
-  echo "Trying to connect to swift gateway: http://$SWIFT_HOST:$SWIFT_PORT/auth/v1.0"
-  timeout 5 swift -A "http://$SWIFT_HOST:$SWIFT_PORT/auth/v1.0" -U admin:admin -K admin stat >/dev/null 2>&1
+  echo "Trying to connect to swift gateway: $HTTP_TYPE://$SWIFT_HOST:$SWIFT_PORT/auth/v1.0"
+  timeout 5 swift -A "$HTTP_TYPE://$SWIFT_HOST:$SWIFT_PORT/auth/v1.0" -U admin:admin -K admin stat >/dev/null 2>&1
   swift=$?
 done
 if [ $swift -ne 0 ]; then
