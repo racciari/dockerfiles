@@ -20,4 +20,23 @@ if [ ! -z "$SWIFT_SSL" ]; then
   sed -i -e "s@^auth_ssl =.*@auth_ssl = ${SWIFT_SSL}@" /etc/swift/test.conf
 fi
 
+# Wait for the swift gateway to be reachable
+TIMEOUT=120
+echo "Waiting for swift gateway to be ready..."
+etime_start=$(date +"%s")
+etime_end=$(($etime_start + $TIMEOUT))
+swift=42
+while [ $(date +"%s") -le $etime_end -a $swift -ne 0 ]
+do
+  echo "Trying to connect to swift gateway: http://$SWIFT_HOST:$SWIFT_PORT/auth/v1.0"
+  timeout 5 swift -A "http://$SWIFT_HOST:$SWIFT_PORT/auth/v1.0" -U admin:admin -K admin stat >/dev/null 2>&1
+  swift=$?
+done
+if [ $swift -ne 0 ]; then
+  echo "Cannot reach swift gateway: $swift"
+  exit 1
+fi
+
+echo 'The swift gateway is ready, launching tests...'
+
 /swift/swift/.functests
