@@ -1,7 +1,7 @@
 FROM ubuntu:16.10
 MAINTAINER "Romain Acciari" <romain.acciari@openio.io>
 
-ENV release mitaka
+ENV release pike
 
 RUN apt-get update \
     && apt-get -y install git python-setuptools python-eventlet \
@@ -11,7 +11,7 @@ RUN mkdir -p /swift /etc/swift \
     && cd /swift \
     && git clone https://github.com/openstack/swift.git \
     && cd swift \
-    && git checkout -b newton origin/stable/${release} \
+    && git checkout -b ${release} origin/stable/${release} \
     && cp test/sample.conf /etc/swift/test.conf
 
 ADD swift-functest.sh /
