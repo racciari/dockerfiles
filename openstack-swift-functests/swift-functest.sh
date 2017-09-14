@@ -58,6 +58,10 @@ fi
 
 # Cleanup the test container
 swift -A "$HTTP_TYPE://$SWIFT_HOST:$SWIFT_PORT/auth/v1.0" -U admin:admin -K admin delete testcont >/dev/null 2>&1
+if [ $? -ne 0 ]; then
+  echo "Cannot delete container"
+  exit 1
+fi
 
 echo 'The swift gateway is ready, launching tests...'
 
