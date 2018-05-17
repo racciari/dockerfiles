@@ -30,12 +30,12 @@ arch=${ARCH:-arm64}
 codename=${CODENAME:-xenial}
 dist=${DIST:-ubuntu}
 repo=${REPOSITORY:-http://ports.ubuntu.com/ubuntu-ports/}
-hostname=${IMGHOSTNAME:-}
+hostname=${IMGHOSTNAME:-localhost}
 imgname=${IMGNAME:-ubuntu.img}
 imgsize=${IMGSIZE:-250}
 wrkdir=${WRKDIR:-/mnt}
 chrootdir=${CHROOTDIR:-ubuntu}
-sshpubkeyfile=${SSHPUBKEYFILE:-.sshpubkey}
+sshpubkey=${SSHPUBKEY}
 
 qemuarch=$arch
 case $arch in

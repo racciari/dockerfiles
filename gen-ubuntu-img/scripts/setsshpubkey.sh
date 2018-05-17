@@ -6,9 +6,6 @@ else
   home='home/$sshuser'
   useradd=true
 fi
-if [ -r "$sshpubkeyfile" ]; then
-  sshpubkey=$(cat "$sshpubkeyfile")
-fi
 
 if [ "$useradd" == 'true' ]; then
   log 'Creating $sshuser home directory'

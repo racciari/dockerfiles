@@ -9,5 +9,5 @@ VOLUME ["/mnt"]
 ADD debootstrap.sh /
 ADD scripts /scripts/
 
-ENTRYPOINT ["/debootstrap.sh"]
+CMD ["/debootstrap.sh"]
 #docker run --privileged -v /mnt/:/mnt/ --net=host ubuntu:16.04 /bin/bash
